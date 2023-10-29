@@ -1,59 +1,38 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState } from "react";
+import "./App.css";
+import FormComponent from "./components/FormComponent";
+import NavBar from "./components/NavBar";
+import ToDoCard from "./components/ToDoCard";
 
 function App() {
+  const card = {
+    title: "ToDoTitle",
+    detail: "I'm baby sriracha hot chicken mixtape pabst organic air...",
+  };
+
+  const [cards, setCards] = useState([card]);
+
+  const addCardHandler = (titleFrominput, contentFromInput) => {
+    setCards((prev) => [...prev, {title: titleFrominput, detail: contentFromInput}])
+    console.log(cards)
+  }
+
   return (
     <div className="App">
- <header>
-      <nav>
-        <p>HIOF</p>
-        <p>User user</p>
-      </nav>
-    </header>
-    <main>
-      <section>
-        <form>
-          <label for="titleInput">Title</label>
-          <input type="text" id="titleInput" />
-          <label for="contentInput">Content </label>
-          <textarea id="contentInput"> </textarea>
-          <button>add</button>
-        </form>
-      </section>
-      <section class="toDoList">
-        <h3>My todos</h3>
-        <article>
-          <h4>ToDoTitle</h4>
-          <p>I'm baby sriracha hot chicken mixtape pabst organic air...</p>
-          <button>Complete</button>
-        </article>
-        <article>
-          <h4>ToDoTitle</h4>
-          <p>I'm baby sriracha hot chicken mixtape pabst organic air...</p>
-          <button>Complete</button>
-        </article>
-        <article>
-          <h4>ToDoTitle</h4>
-          <p>I'm baby sriracha hot chicken mixtape pabst organic air...</p>
-          <button>Complete</button>
-        </article>
-        <article>
-          <h4>ToDoTitle</h4>
-          <p>I'm baby sriracha hot chicken mixtape pabst organic air...</p>
-          <button>Complete</button>
-        </article>
-        <article>
-          <h4>ToDoTitle</h4>
-          <p>I'm baby sriracha hot chicken mixtape pabst organic air...</p>
-          <button>Complete</button>
-        </article>
-        <article>
-          <h4>ToDoTitle</h4>
-          <p>I'm baby sriracha hot chicken mixtape pabst organic air...</p>
-          <button>Complete</button>
-        </article>
-      </section>
-    </main>
+      <header>
+        <NavBar />
+      </header>
+      <main>
+        <section>
+          <FormComponent addCardHandler = {addCardHandler}/>
+        </section>
+        <section className="toDoList">
+          <h3>My todos</h3>
+          {cards.map((card) => {
+            return <ToDoCard card={card} key={card.title}/>;
+          })}
+        </section>
+      </main>
     </div>
   );
 }
