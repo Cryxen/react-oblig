@@ -4,20 +4,56 @@ import './App.css';
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+ <header>
+      <nav>
+        <p>HIOF</p>
+        <p>User user</p>
+      </nav>
+    </header>
+    <main>
+      <section>
+        <form>
+          <label for="titleInput">Title</label>
+          <input type="text" id="titleInput" />
+          <label for="contentInput">Content </label>
+          <textarea id="contentInput"> </textarea>
+          <button>add</button>
+        </form>
+      </section>
+      <section class="toDoList">
+        <h3>My todos</h3>
+        <article>
+          <h4>ToDoTitle</h4>
+          <p>I'm baby sriracha hot chicken mixtape pabst organic air...</p>
+          <button>Complete</button>
+        </article>
+        <article>
+          <h4>ToDoTitle</h4>
+          <p>I'm baby sriracha hot chicken mixtape pabst organic air...</p>
+          <button>Complete</button>
+        </article>
+        <article>
+          <h4>ToDoTitle</h4>
+          <p>I'm baby sriracha hot chicken mixtape pabst organic air...</p>
+          <button>Complete</button>
+        </article>
+        <article>
+          <h4>ToDoTitle</h4>
+          <p>I'm baby sriracha hot chicken mixtape pabst organic air...</p>
+          <button>Complete</button>
+        </article>
+        <article>
+          <h4>ToDoTitle</h4>
+          <p>I'm baby sriracha hot chicken mixtape pabst organic air...</p>
+          <button>Complete</button>
+        </article>
+        <article>
+          <h4>ToDoTitle</h4>
+          <p>I'm baby sriracha hot chicken mixtape pabst organic air...</p>
+          <button>Complete</button>
+        </article>
+      </section>
+    </main>
     </div>
   );
 }
