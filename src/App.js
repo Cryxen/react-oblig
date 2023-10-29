@@ -13,9 +13,16 @@ function App() {
   const [cards, setCards] = useState([card]);
 
   const addCardHandler = (titleFrominput, contentFromInput) => {
-    setCards((prev) => [...prev, {title: titleFrominput, detail: contentFromInput}])
-    console.log(cards)
-  }
+    setCards((prev) => [
+      ...prev,
+      { title: titleFrominput, detail: contentFromInput },
+    ]);
+    console.log(cards);
+  };
+
+  const removeCard = (cardTitle) => {
+    setCards(cards.filter((card) => card.title !== cardTitle))
+  };
 
   return (
     <div className="App">
@@ -24,12 +31,14 @@ function App() {
       </header>
       <main>
         <section>
-          <FormComponent addCardHandler = {addCardHandler}/>
+          <FormComponent addCardHandler={addCardHandler} />
         </section>
         <section className="toDoList">
           <h3>My todos</h3>
           {cards.map((card) => {
-            return <ToDoCard card={card} key={card.title}/>;
+            return (
+              <ToDoCard card={card} key={card.title} removeCard={removeCard} />
+            );
           })}
         </section>
       </main>
